@@ -76,13 +76,11 @@ class PostAuthorsTable extends Table
 
         $validator
             ->scalar('avatar')
-            ->requirePresence('avatar', 'create')
-            ->notEmptyString('avatar');
+            ->allowEmptyString('avatar');
 
         $validator
             ->scalar('description')
-            ->requirePresence('description', 'create')
-            ->notEmptyString('description');
+            ->allowEmptyString('description');
 
         return $validator;
     }
