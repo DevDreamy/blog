@@ -39,8 +39,8 @@ class PostCategoriesFixture extends TestFixture
             [
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
-                'created' => '2022-05-27 10:48:00',
-                'modified' => '2022-05-27 10:48:00',
+                'created' => '2022-05-27 14:20:20',
+                'modified' => '2022-05-27 14:20:20',
             ],
         ];
         parent::init();

@@ -45,8 +45,8 @@ class PostsFixture extends TestFixture
                 'body' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'post_category_id' => 1,
                 'post_author_id' => 1,
-                'created' => '2022-05-27 09:23:56',
-                'modified' => '2022-05-27 09:23:56',
+                'created' => '2022-05-27 14:20:00',
+                'modified' => '2022-05-27 14:20:00',
             ],
         ];
         parent::init();
