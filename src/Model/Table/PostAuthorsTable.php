@@ -75,6 +75,15 @@ class PostAuthorsTable extends Table
             ->notEmptyString('password');
 
         $validator
+            ->add(
+                'confirm_password',
+                'compareWith', [
+                    'rule' => ['compareWith', 'password'],
+                    'message' => 'Passwords not equal.'
+                ]
+            );
+
+        $validator
             ->scalar('avatar')
             ->allowEmptyString('avatar');
 
