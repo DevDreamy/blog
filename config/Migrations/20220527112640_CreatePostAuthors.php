@@ -24,12 +24,12 @@ class CreatePostAuthors extends AbstractMigration
         ->addColumn('avatar', 'text', [
             'default' => null,
             'limit' => null,
-            'null' => false,
+            'null' => true,
         ])
         ->addColumn('description', 'text', [
             'default' => null,
             'limit' => null,
-            'null' => false,
+            'null' => true,
         ])
         ->addColumn('created', 'datetime', [
             'default' => null,
