@@ -20,6 +20,7 @@
             echo $this->Form->control('name');
             echo $this->Form->control('email');
             echo $this->Form->control('password');
+            echo $this->Form->control('confirm_password', ['type' => 'password']);
             echo $this->Form->control('avatar');
             echo $this->Form->control('description');
         ?>
