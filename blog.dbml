@@ -1,0 +1,55 @@
+Project Blog {
+    database_type: 'SQL'
+    note: ''
+}
+
+Table "posts" {
+  "id" int(11) [pk, not null, increment]
+  "title" varchar(50) [not null]
+  "body" text [not null]
+  "post_category_id" int(11) [not null]
+  "post_author_id" int(11) [not null]
+  "created" datetime [not null]
+  "modified" datetime [default: NULL]
+}
+
+Table "post_authors" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(150) [not null]
+  "email" varchar(320) [not null]
+  "password" varchar(60) [not null]
+  "avatar" text
+  "description" text
+  "created" datetime [not null]
+  "modified" datetime [default: NULL]
+}
+
+Table "post_categories" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(220) [not null]
+  "created" datetime [not null]
+  "modified" datetime [default: NULL]
+}
+
+Ref: "post_authors"."id" < "posts"."post_author_id"
+
+Ref: "post_categories"."id" < "posts"."post_category_id"
+
+Table "users" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "email" varchar(150) [not null]
+  "password" varchar(60) [not null]
+  "avatar" text
+  "description" text
+  "created" datetime [not null]
+  "modified" datetime [default: NULL]
+}
+
+Table "subscriptions" {
+  "user_id" int(11) [not null, ref: - users.id]
+  "plan" varchar(150)
+  "active_periode" int
+  "created" datetime [not null]
+  "modified" datetime [default: NULL]
+  }
