@@ -10,8 +10,8 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $email
  * @property string $password
- * @property string $avatar
- * @property string $description
+ * @property string|null $avatar
+ * @property string|null $description
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
