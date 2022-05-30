@@ -51,8 +51,6 @@ PATH:     /post-authors
 METHOD:   GET
 ```
 
-</br></br>
-
 ### Show one author:
 
 ```
@@ -60,17 +58,14 @@ PATH:     /post-authors/view/{id}
 METHOD:   GET
 ```
 
-</br></br>
-
 ### Create an author:
 
 ```
 PATH:     /post-authors/add
 METHOD:   POST
-body:     {name: string, email: string, password: string, avatar: string, description: string }
+BODY:     {name: string, email: string, password: string, avatar: string, description: string }
 ```
 
-</br></br>
 
 ## Posts Categories
 
@@ -81,7 +76,6 @@ PATH:     /post-categories
 METHOD:   GET
 ```
 
-</br></br>
 
 ### Show one category:
 
@@ -90,14 +84,13 @@ PATH:     /post-categories/view/{id}
 METHOD:   GET
 ```
 
-</br></br>
 
 ### Create a category:
 
 ```
 PATH:     /post-categories/add
 METHOD:   POST
-body:     {name: string}
+BODY:     {name: string}
 ```
 
 ## Posts
@@ -109,7 +102,6 @@ PATH:     /posts
 METHOD:   GET
 ```
 
-</br></br>
 
 ### Show one post:
 
@@ -118,12 +110,11 @@ PATH:     /post/view/{id}
 METHOD:   GET
 ```
 
-</br></br>
 
 ### Create a post:
 
 ```
 PATH:     /posts/add
 METHOD:   POST
-body:     {title: string, body: string, post_category_id: int, post_author_id: int}
+BODY:     {title: string, body: string, post_category_id: int, post_author_id: int}
 ```
