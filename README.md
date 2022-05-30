@@ -1,51 +1,129 @@
-# CakePHP Application Skeleton
+# Blog MVP
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+This project is an MVP (Minimum Viable Product) of a blog, where it is possible to create authors and categories, and with this information, create posts for the blog.
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
+The principal idea is that there will be two platforms accessing the API, one Dashboard where it’s going to be possible to register and log in as an author and one website where users are going to read the posts. Users would have limited access to the blog posts and a subscription would be needed for full access to them.
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+# Dependencies
 
-## Installation
+This application uses the following framework and plugin:
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+-   CakePHP - a framework used to build the API;
+-   Migrations - to help make changes to the database schema using PHP files.
 
-If Composer is installed globally, run
+# Usage
 
-```bash
-composer create-project --prefer-dist "cakephp/app:^3.8"
+Make sure you have the following requirements to run this application:
+
+-   HTTP Server. For example: Apache. Having mod_rewrite is preferred, but by no means required. You can also use nginx, or Microsoft IIS if you prefer;
+-   Minimum PHP 5.6 (7.4 supported);
+-   mbstring PHP extension;
+-   intl PHP extension;
+-   simplexml PHP extension;
+-   PDO PHP extension;
+-   MySQL (5.5.3 or greater);
+-   Composer.
+
+Assuming you are using Wampserver, clone this repository in the wamp64/www folder.
+
+On a terminal, use the command below:
+
+```
+composer install
 ```
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+After every package has been completely installed,
+rename the app_local.example.php to app_local.php, open this file and look for the Datasources section and change the username, password and database values according to your own configurations.
+If you are not using the default port, make sure to uncomment the line above username to define your custom port.
 
-```bash
-composer create-project --prefer-dist "cakephp/app:^3.8" myapp
+After making these configurations, open your browser and access http://localhost/blog/posts to start using the API.
+
+# Endpoints
+
+This section has useful and relevant information on how to consume the API.
+
+## Posts Authors
+
+### Show all authors:
+
+```
+PATH:     /post-authors
+METHOD:   GET
 ```
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
+</br></br>
 
-```bash
-bin/cake server -p 8765
+### Show one author:
+
+```
+PATH:     /post-authors/view/{id}
+METHOD:   GET
 ```
 
-Then visit `http://localhost:8765` to see the welcome page.
+</br></br>
 
-## Update
+### Create an author:
 
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
+```
+PATH:     /post-authors/add
+METHOD:   POST
+body:     {name: string, email: string, password: string, avatar: string, description: string }
+```
 
-## Configuration
+</br></br>
 
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
+## Posts Categories
 
-## Layout
+### Show all categories:
 
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+```
+PATH:     /post-categories
+METHOD:   GET
+```
+
+</br></br>
+
+### Show one category:
+
+```
+PATH:     /post-categories/view/{id}
+METHOD:   GET
+```
+
+</br></br>
+
+### Create a category:
+
+```
+PATH:     /post-categories/add
+METHOD:   POST
+body:     {name: string}
+```
+
+## Posts
+
+### Show all posts:
+
+```
+PATH:     /posts
+METHOD:   GET
+```
+
+</br></br>
+
+### Show one post:
+
+```
+PATH:     /post/view/{id}
+METHOD:   GET
+```
+
+</br></br>
+
+### Create a post:
+
+```
+PATH:     /posts/add
+METHOD:   POST
+body:     {title: string, body: string, post_category_id: int, post_author_id: int}
+```
