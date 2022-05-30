@@ -106,7 +106,7 @@ METHOD:   GET
 ### Show one post:
 
 ```
-PATH:     /post/view/{id}
+PATH:     /posts/view/{id}
 METHOD:   GET
 ```
 
